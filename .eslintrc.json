@@ -9,6 +9,7 @@
     "rules": {
         "no-useless-constructor": "off",
         "no-unused-vars": 1,
-        "prefer-template": 1
+        "prefer-template": 1,
+        "prettier/prettier": 1
     }
 }
