@@ -1,8 +1,8 @@
-import { AnswersCommentsRepository } from '@/domain/forum/application/repositories/answers-comments-repository'
+import { AnswerCommentsRepository } from '@/domain/forum/application/repositories/answer-comments-repository'
 import { AnswerComment } from '@/domain/forum/enterprise/entities/answer-comments'
 
-export class InMemoryAnswersCommentsRepository
-  implements AnswersCommentsRepository
+export class InMemoryAnswerCommentsRepository
+  implements AnswerCommentsRepository
 {
   public items: AnswerComment[] = []
 

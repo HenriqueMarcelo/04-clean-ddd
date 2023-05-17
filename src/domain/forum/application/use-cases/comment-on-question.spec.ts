@@ -1,21 +1,21 @@
 import { InMemoryQuestionsRepository } from 'test/repositories/in-memory-questions-repository'
 import { makeQuestion } from 'test/factories/make-question'
 import { CommentOnQuestionUseCase } from './comment-on-question'
-import { InMemoryQuestionsCommentsRepository } from 'test/repositories/in-memory-questions-comments-repository'
+import { InMemoryQuestionCommentsRepository } from 'test/repositories/in-memory-question-comments-repository'
 
 let inMemoryQuestionsRepository: InMemoryQuestionsRepository
-let inMemoryQuestionsCommentsRepository: InMemoryQuestionsCommentsRepository
+let inMemoryQuestionCommentsRepository: InMemoryQuestionCommentsRepository
 let sut: CommentOnQuestionUseCase
 
 describe('Comment on Question', () => {
   beforeEach(() => {
     inMemoryQuestionsRepository = new InMemoryQuestionsRepository()
-    inMemoryQuestionsCommentsRepository =
-      new InMemoryQuestionsCommentsRepository()
+    inMemoryQuestionCommentsRepository =
+      new InMemoryQuestionCommentsRepository()
 
     sut = new CommentOnQuestionUseCase(
       inMemoryQuestionsRepository,
-      inMemoryQuestionsCommentsRepository,
+      inMemoryQuestionCommentsRepository,
     )
   })
 
@@ -30,7 +30,7 @@ describe('Comment on Question', () => {
       authorId: question.authorId.toString(),
     })
 
-    expect(inMemoryQuestionsCommentsRepository.items[0].content).toEqual(
+    expect(inMemoryQuestionCommentsRepository.items[0].content).toEqual(
       'Comentário teste',
     )
   })

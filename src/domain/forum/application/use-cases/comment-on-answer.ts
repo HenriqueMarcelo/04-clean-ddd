@@ -1,7 +1,7 @@
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { AnswersRepository } from '../repositories/answers-repository'
 import { AnswerComment } from '../../enterprise/entities/answer-comments'
-import { AnswersCommentsRepository } from '../repositories/answers-comments-repository'
+import { AnswerCommentsRepository } from '../repositories/answer-comments-repository'
 
 interface CommentOnAnswerUseCaseRequest {
   authorId: string
@@ -16,7 +16,7 @@ interface CommentOnAnswerUseCaseResponse {
 export class CommentOnAnswerUseCase {
   constructor(
     private answersRepository: AnswersRepository,
-    private answerCommentsRepository: AnswersCommentsRepository,
+    private answerCommentsRepository: AnswerCommentsRepository,
   ) {}
 
   async execute({

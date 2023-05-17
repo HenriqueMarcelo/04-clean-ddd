@@ -1,30 +1,30 @@
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
-import { InMemoryQuestionsCommentsRepository } from 'test/repositories/in-memory-questions-comments-repository'
+import { InMemoryQuestionCommentsRepository } from 'test/repositories/in-memory-question-comments-repository'
 import { FetchQuestionCommentsUseCase } from './fetch-question-comments'
 import { makeQuestionComment } from 'test/factories/make-question-comment'
 
-let inMemoryQuestionsCommentsRepository: InMemoryQuestionsCommentsRepository
+let inMemoryQuestionCommentsRepository: InMemoryQuestionCommentsRepository
 let sut: FetchQuestionCommentsUseCase
 
 describe('Fetch Questions Comment', () => {
   beforeEach(() => {
-    inMemoryQuestionsCommentsRepository =
-      new InMemoryQuestionsCommentsRepository()
-    sut = new FetchQuestionCommentsUseCase(inMemoryQuestionsCommentsRepository)
+    inMemoryQuestionCommentsRepository =
+      new InMemoryQuestionCommentsRepository()
+    sut = new FetchQuestionCommentsUseCase(inMemoryQuestionCommentsRepository)
   })
 
   it('should be able to fetch questions comments', async () => {
-    await inMemoryQuestionsCommentsRepository.create(
+    await inMemoryQuestionCommentsRepository.create(
       makeQuestionComment({
         questionId: new UniqueEntityID('question-1'),
       }),
     )
-    await inMemoryQuestionsCommentsRepository.create(
+    await inMemoryQuestionCommentsRepository.create(
       makeQuestionComment({
         questionId: new UniqueEntityID('question-1'),
       }),
     )
-    await inMemoryQuestionsCommentsRepository.create(
+    await inMemoryQuestionCommentsRepository.create(
       makeQuestionComment({
         questionId: new UniqueEntityID('question-1'),
       }),
@@ -40,7 +40,7 @@ describe('Fetch Questions Comment', () => {
 
   it('should be able to paginate question comment', async () => {
     for (let i = 1; i <= 22; i++) {
-      await inMemoryQuestionsCommentsRepository.create(
+      await inMemoryQuestionCommentsRepository.create(
         makeQuestionComment({
           questionId: new UniqueEntityID('question-1'),
         }),
