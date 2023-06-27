@@ -28,3 +28,22 @@ Design dirigido à domínio
 - Entidades
 - Casos de uso
 
+______________________
+
+# Conceitos
+
+- Aggregate
+    - Quando a gente tem 2 ou mais entidades que são trabalhadas juntas.
+
+- WatchedList
+    - Na hora da edição
+        - Adicionar um novo anexo (create)
+        - Remover o segundo anexo que tinha sido criado (delete)
+        - Editar um anexo existente (update)
+
+## Exemplo
+
+- Order -> OrderItem[]
+- Order -> Shipping
+
+- Question -> Attachment[]
